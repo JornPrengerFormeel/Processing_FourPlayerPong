@@ -2,6 +2,10 @@ float bx = 300;
 float by = 300;
 float vx = 0;
 float vy = 5;
+float pu = 255;
+float pd = 255;
+float pl = 280;
+float pr = 280;
 
 
 void setup(){
@@ -25,14 +29,48 @@ void draw(){
   rect(0, 560, 40, 40);
   
   rect(560, 560, 40, 40);
+ 
+  if(keyPressed){
+    if(key == 'a')
+    {
+      pu-=4;
+    }
+    if(key == 's')
+    {
+      pu+=4;
+    }
+    if(key == 'c')
+    {
+     pd-=4; 
+    }
+    if(key == 'v')
+    {
+     pd+=4; 
+    }
+    if(key == 'y')
+    {
+     pl-=4; 
+    }
+    if(key == 'u')
+    {
+     pl+=4; 
+    }
+    if(key == 'k')
+    {
+     pr-=4;
+    }
+    if(key == 'l')
+    {
+     pr+=4; 
+    }
+  }
+  rect(pu, 30, 90 ,10);
   
-  rect(255, 30, 90 ,12);
+  rect(pd, 560, 90, 10);
   
-  rect(255, 560, 90, 12);
+  rect(30, pl, 10, 90);
   
-  rect(30, 280, 12, 90);
-  
-  rect(550, 280, 12, 90);
+  rect(560, pr, 10, 90);
     
 /*  fill(0);
   rect();
