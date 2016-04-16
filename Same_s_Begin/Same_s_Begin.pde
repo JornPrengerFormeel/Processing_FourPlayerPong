@@ -13,6 +13,21 @@ void setup(){
   frameRate(60);
 }
 void draw(){
+  if(by>=560 && bx>=pd && bx<=pd+90){
+    vy=-vy;
+    if(keyPressed && key=='c')
+    {
+      vx-=2;
+    }
+    if(keyPressed && key=='v')
+    {
+      vx+=2;
+    }
+       
+  }
+  if(by<=40 && bx>=pu && bx<=pu+90){
+    vy=-vy;
+  }
   background(0);
   by+=vy;
   bx+=vx;
@@ -72,16 +87,4 @@ void draw(){
   
   rect(560, pr, 10, 90);
     
-/*  fill(0);
-  rect();
-  
-  fill(0);
-  rect();
-  
-  fill(0);
-  rect();
-  
-  fill(0);
-  rect();
- */ 
 }
