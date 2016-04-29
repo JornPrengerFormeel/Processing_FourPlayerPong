@@ -7,7 +7,6 @@ float pd = 255;
 float pl = 280;
 float pr = 280;
 
-
 void setup(){
   size(600, 600);
   frameRate(60);
@@ -27,6 +26,14 @@ void draw(){
   }
   if(by<=40 && bx>=pu && bx<=pu+90){
     vy=-vy;
+    if(keyPressed && key=='a')
+    {
+      vx-=2;
+    }
+    if(keyPressed && key=='s')
+    {
+      vx+=2;
+    }
   }
   background(0);
   by+=vy;
