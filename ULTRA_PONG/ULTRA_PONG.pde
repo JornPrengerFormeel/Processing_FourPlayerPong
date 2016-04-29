@@ -6,6 +6,8 @@ float pu = 255;
 float pd = 255;
 float pl = 280;
 float pr = 280;
+boolean gameOver = false;
+boolean walld = false;
 
 void setup() {
   size(600, 600);
@@ -22,6 +24,10 @@ void draw() {
     {
       vx+=2;
     }
+  }
+  else if(by >= 560){
+    gameOver = true;
+    walld = true;
   }
   if (by<=40 && bx>=pu && bx<=pu+90) {
     vy=-vy;
