@@ -28,12 +28,15 @@ void draw() {
       vx+=2;
     }
   }
-  else if(by >= 560){
+  else if(by >= 560 && !walld){
     gameOver = true;
     walld = true;
   }
+  else if(by >= 560){
+   vy=-vy; 
+  }
   
-  if (by<=40 && bx>=pu && bx<=pu+90) {
+  if (by<=40 && bx>=pu && bx<=pu+90 && !wallu) {
     vy=-vy;
     if (keyPressed && key=='a')
     {
@@ -44,12 +47,15 @@ void draw() {
       vx+=2;
     }
   }
-  else if(by >= 40){
+  else if(by <= 40 && !wallu){
     gameOver = true;
     wallu =true;
   }
+  else if (by <= 40){
+   vy=-vy; 
+  }
 
-  if (bx <= 40 && by>=pl && by<=pl+90) {
+  if (bx <= 40 && by>=pl && by<=pl+90 && !walll) {
     vx=-vx;
     if (keyPressed && key=='y')
     {
@@ -60,13 +66,17 @@ void draw() {
       vy+=2;
     }
   }
-  else if(bx <= 40)
+  else if(bx <= 40 && !walll)
   {
    gameOver = true; 
    walll = true;
   }
+  else if(bx <= 40)
+  {
+   vx=-vx;
+  }
 
-  if (bx >= 560 && by>=pr && by<=pr+90) {
+  if (bx >= 560 && by>=pr && by<=pr+90 && !wallr) {
     vx=-vx;
     if (keyPressed && key=='k')
     {
@@ -77,10 +87,14 @@ void draw() {
       vy+=2;
     }
   }
-  else if(bx <= 560)
+  else if(bx >= 560 && !wallr)
   {
    gameOver = true;
    wallr = true;
+  }
+  else if(bx >= 560)
+  {
+  vx=-vx;
   }
 
   background(0);
@@ -141,4 +155,18 @@ void draw() {
   rect(30, pl, 10, 90);
 
   rect(560, pr, 10, 90);
+  
+    if(walld){
+       rect(0, 560, width, 10);
+    }
+    if(wallu){
+       rect(0, 30, width, 10);
+    }
+       if(wallr){
+       rect(560, 0,10 ,height );
+    }
+    if(walll){
+       rect(30, 0,10, height);
+    }
+  
 }
