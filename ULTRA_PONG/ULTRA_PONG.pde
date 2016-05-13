@@ -8,6 +8,9 @@ float pl = 280;
 float pr = 280;
 boolean gameOver = false;
 boolean walld = false;
+boolean wallu = false;
+boolean wallr = false;
+boolean walll = false;
 
 void setup() {
   size(600, 600);
@@ -29,6 +32,7 @@ void draw() {
     gameOver = true;
     walld = true;
   }
+  
   if (by<=40 && bx>=pu && bx<=pu+90) {
     vy=-vy;
     if (keyPressed && key=='a')
@@ -39,6 +43,10 @@ void draw() {
     {
       vx+=2;
     }
+  }
+  else if(by >= 40){
+    gameOver = true;
+    wallu =true;
   }
 
   if (bx <= 40 && by>=pl && by<=pl+90) {
@@ -52,8 +60,13 @@ void draw() {
       vy+=2;
     }
   }
+  else if(bx <= 40)
+  {
+   gameOver = true; 
+   walll = true;
+  }
 
-  if (bx >= 560 && by>=pl && by<=pl+90) {
+  if (bx >= 560 && by>=pr && by<=pr+90) {
     vx=-vx;
     if (keyPressed && key=='k')
     {
@@ -63,6 +76,11 @@ void draw() {
     {
       vy+=2;
     }
+  }
+  else if(bx <= 560)
+  {
+   gameOver = true;
+   wallr = true;
   }
 
   background(0);
